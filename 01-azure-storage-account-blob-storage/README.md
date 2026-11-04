@@ -88,6 +88,21 @@ My main takeaway is that Cloud Engineering involves more than deploying resource
 
 ## 11. Evidence
 
-Screenshots documenting the Azure Storage Account, private Blob container, uploaded file, and retrieval process will be added after checking for sensitive information.
+
+### Azure Storage Account Overview
+![Azure Storage Account Overview](screenshots/01.Storage-Accnt-Overview.png)
+
+### Private Blob Container
+![Private Blob Container](screenshots/02.Private-Container.png)
+
+### Uploaded Blob File
+![Uploaded Blob File](screenshots/03-blob-uploaded.png)
+
+### Blob Retrieval and Validation
+![Blob Retrieval and Validation](screenshots/04-blob-retrieval-validation.png)
+
+### Microsoft Entra ID Authorization Troubleshooting
+![Entra ID Blob Access Denied](screenshots/05-entra-id-blob-access-denied.png)
+
 
 **Lab Status:** Completed — manual file upload and retrieval verified.
