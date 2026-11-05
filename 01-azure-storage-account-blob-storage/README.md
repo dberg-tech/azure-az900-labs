@@ -51,15 +51,63 @@ After downloading it, I opened the file locally and verified that its contents m
 - Blob and container soft delete were enabled with seven-day retention.
 - Public network access was enabled from all networks. I recognize that additional network restrictions would be important to evaluate for sensitive production workloads.
 
-## 7. Troubleshooting
 
-Initially, I attempted to access the Blob container using my Microsoft Entra ID account but encountered an authorization limitation.
+## 7. Troubleshooting — Microsoft Entra ID and Azure RBAC
 
-I switched to storage account access-key authentication and successfully completed the lab.
+### Problem: Authorization Failure
 
-This helped me understand the difference between Azure resource management permissions and Blob data access permissions.
+When I initially attempted to access my private Blob container using Microsoft Entra ID authentication, Azure returned an authorization error.
 
-For a production-oriented improvement, I would use Microsoft Entra ID with an appropriate Azure RBAC data-plane role, such as Storage Blob Data Contributor.
+Although my account had the **Owner** role at the subscription level, I could not list the files inside the container.
+
+### Root Cause: Management Plane vs. Data Plane
+
+I investigated the permissions and learned that Azure separates resource management permissions from data access permissions.
+
+- **Management plane:** The Owner role allowed me to manage Azure resources and role assignments.
+- **Data plane:** Accessing Blob contents through Microsoft Entra ID required an appropriate Storage Blob data role.
+
+Having Owner permissions did not automatically grant Blob data access through Microsoft Entra ID.
+
+### Solution: Apply Least-Privilege RBAC
+
+To resolve the issue, I:
+
+1. Opened **Access Control (IAM)** for the `portfolio-files` container.
+2. Selected the built-in **Storage Blob Data Contributor** role.
+3. Assigned the role to my Microsoft Entra ID user account.
+4. Scoped the assignment to the specific Blob container rather than the entire subscription.
+5. Returned to the container and tested access using Microsoft Entra ID authentication.
+
+### Validation: Successful Access
+
+After the role assignment took effect, I successfully listed the container contents using Microsoft Entra ID authentication and confirmed that `hello-azure.txt` was accessible.
+
+This demonstrated that the authorization issue was caused by missing Blob data-plane permissions rather than an authentication failure.
+
+### Key Learning
+
+Azure RBAC permissions must match the operation being performed. The scope of a role assignment also matters.
+
+For production workloads, I would prefer Microsoft Entra ID authentication with appropriately scoped RBAC permissions over routine use of shared storage account access keys.
+
+### Troubleshooting Evidence
+
+**1. Subscription-level Owner role before the fix**
+
+![Owner role before RBAC fix](screenshots/06-rbac-owner-before-fix.png)
+
+**2. Microsoft Entra ID authorization error**
+
+![Blob access denied before RBAC fix](screenshots/07-entra-id-access-denied-before-rbac-fix.png)
+
+**3. Storage Blob Data Contributor assigned at container scope**
+
+![Container-scoped RBAC assignment](screenshots/08-rbac-blob-data-contributor-assigned.png)
+
+**4. Successful Blob access using Microsoft Entra ID**
+
+![Successful Microsoft Entra ID Blob access](screenshots/09-entra-id-blob-access-success.png)
 
 ## 8. Cost and Design Decisions
 
