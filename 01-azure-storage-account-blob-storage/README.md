@@ -111,18 +111,29 @@ For production workloads, I would prefer Microsoft Entra ID authentication with 
 
 ## 8. Cost and Design Decisions
 
-- **Standard performance:** Appropriate for a small learning workload.
-- **LRS:** Provides local redundancy without the additional geographic protection and potential costs of higher redundancy options.
-- **Hot access tier:** Suitable for files accessed frequently during testing.
-- **Microsoft-managed keys:** Provide encryption at rest without requiring me to manage encryption keys.
-- **Cost Management:** I explored Azure Cost Management to understand how cloud spending can be monitored.
+**Cost Management:** I used Azure Cost Analysis to review spending by service and investigate the storage operations contributing to costs. I also created a subscription-level monthly budget of 50 SEK with email alerts at 50% (25 SEK), 80% (40 SEK), and 100% (50 SEK).
+
+The reported cost during testing was less than 0.01 SEK. This helped me understand how cloud consumption can be monitored, although a budget alert does not automatically stop resources or prevent additional charges.
+
+**Cost Monitoring Evidence**
+
+**1. Cost analysis by service**
+
+![Azure cost analysis by service](screenshots/10-cost-analysis-by-service.png)
+
+**2. Storage usage and metering**
+
+![Azure storage cost analysis](screenshots/11-cost-analysis-storage-meters.png)
+
+**3. Monthly budget and alerts**
+
+![Azure budget and cost alerts](screenshots/12-azure-budget-cost-alerts.png)
 
 ## 9. Future Improvements
 
 - Configure Microsoft Entra ID authentication with least-privilege RBAC.
 - Evaluate firewall rules and private endpoints.
 - Explore Blob versioning and additional recovery options.
-- Configure budgets and cost alerts.
 - Automate deployment using Azure CLI, Bicep, or Terraform.
 - Review resource cleanup to avoid unnecessary ongoing charges.
 
