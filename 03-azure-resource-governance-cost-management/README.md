@@ -152,3 +152,78 @@ Reviewed accumulated costs for November 2026 at the Resource Group scope.
 At the time of review, the reported cost was below SEK 0.01, primarily associated with Azure Storage.
 
 ![Azure Resource Group cost analysis](screenshots/03-resource-group-cost-analysis.png)
+
+
+## 7. Key Learnings
+
+Through this lab, I gained practical experience with Azure resource governance and cost management.
+
+- **Resource Organization:** Learned how Azure tags classify resources by environment, project, workload, and management responsibility.
+- **Resource Protection:** Configured a CanNotDelete lock to reduce the risk of accidental deletion of resources within a Resource Group.
+- **Governance vs. Security:** Understood that tags organize resources and locks protect against deletion, but neither replaces Azure RBAC or security policies.
+- **Cost Visibility:** Used Azure Cost Management to review accumulated spending at the Resource Group level and identify which services generated costs.
+- **Budget Scope:** Understood the distinction between subscription-level budgets and Resource Group cost analysis. An existing subscription-level budget was configured in Lab 01.
+- **Operational Responsibility:** Learned that resource locks must be considered during cleanup and that cloud spending requires ongoing monitoring.
+
+### Cloud Engineering Takeaway
+
+Deploying cloud resources is only part of a Cloud Engineer's responsibility.
+
+A well-managed Azure environment also requires consistent resource organization, protection against accidental changes, cost visibility, and appropriate access controls.
+
+This lab introduced foundational governance practices that can be expanded through Azure Policy, RBAC, Infrastructure as Code, and automated cost monitoring in future projects.
+
+
+## 8. Connection to Previous Labs and Future Development
+
+This lab is part of a progressive Azure Cloud Engineering portfolio based on a simulated e-commerce environment.
+
+### Lab 01 — Azure Storage Foundation
+
+Deployed an Azure Storage Account and Blob Container to explore cloud storage, data access, and authorization.
+
+Investigated an HTTP 403 authorization error and resolved it by assigning the appropriate Azure RBAC role.
+
+Also explored Azure Cost Management and configured a subscription-level budget.
+
+### Lab 02 — Azure Networking Foundation
+
+Created an Azure Virtual Network with two subnets:
+
+- `snet-app-dev` — for future application workloads.
+- `snet-private-endpoints-dev` — for future private connections to Azure services.
+
+Learned how to plan private IPv4 address ranges and distinguish network segmentation from actual traffic isolation.
+
+### Lab 03 — Azure Governance and Cost Management
+
+Extended the existing Azure environment by:
+
+- Applying consistent Resource Group tags.
+- Configuring a CanNotDelete resource lock.
+- Reviewing accumulated costs at the Resource Group level.
+- Understanding the difference between resource organization, protection, and access control.
+
+All three labs use the existing development Resource Group, `rg-portfolio-dev`.
+
+### Future Development
+
+The next stages of this portfolio will explore:
+
+- Network Security Groups and traffic filtering.
+- Private connectivity between Azure services.
+- Azure identity and access management.
+- Infrastructure as Code using Bicep and Terraform.
+- Monitoring, alerting, and deployment automation.
+
+The long-term goal is to develop this environment into a more secure, maintainable, and automated Azure infrastructure project.
+
+### Previous Labs
+
+- [Lab 01 — Azure Storage Account and Blob Storage](../01-azure-storage-account-blob-storage/README.md)
+- [Lab 02 — Azure Virtual Network and Subnets](../02-azure-virtual-network-subnets/README.md)
+
+---
+
+**Lab Status:** Completed and verified  
+**Certification Track:** Microsoft Azure Fundamentals (AZ-900)
