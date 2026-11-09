@@ -113,3 +113,18 @@ Additional services, such as NAT Gateway, Azure Firewall, and Azure Bastion, may
 
 **Lab Status:** Completed and verified  
 **Certification:** Microsoft Azure Fundamentals (AZ-900)
+
+## Deployment Evidence
+
+### 1. Virtual Network Address Space
+![VNet address space and subnet configuration](screenshots/01-vnet-address-space.png)
+
+### 2. Configuration Validation
+![Azure VNet validation passed](screenshots/02-vnet-validation-review.png)
+
+### 3. Successful Deployment
+![Azure VNet deployment completed](screenshots/03-vnet-deployment-success.png)
+
+### 4. Subnet Verification
+![Two deployed subnets](screenshots/04-vnet-subnets-verified.png)
+  
