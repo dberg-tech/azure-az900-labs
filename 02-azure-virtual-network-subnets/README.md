@@ -2,15 +2,25 @@
 
 ## 1. Business Problem
 
-An e-commerce company needs a structured private network in Microsoft Azure to support future application workloads and secure connections to cloud services.
+A growing e-commerce company is developing its cloud infrastructure in Microsoft Azure.
 
-Placing all resources in a single network segment can make network organization and security management more difficult as the environment grows.
+In Lab 01, the company established a storage foundation using Azure Blob Storage.
 
-In this lab, I explored how Azure Virtual Networks and subnets provide a foundation for organizing cloud resources and preparing for network security controls.
+As the infrastructure expands, the company needs a structured network environment to organize application resources and prepare for more secure access to cloud services.
+
+The challenge is to design an Azure Virtual Network with separate subnets for application workloads and future private endpoints, while planning for security, scalability, and cost management.
+
+This lab focuses on building the network foundation. Network security controls and private endpoint connectivity will be evaluated in later stages.
 
 ## 2. Objective
+The objective of this lab was to design and deploy the network foundation for a simulated e-commerce company's Azure development environment.
 
-Create an Azure Virtual Network with two separate subnets, understand IPv4 address allocation, and verify the deployed network configuration.
+I created an Azure Virtual Network with two separate subnets: one reserved for future application workloads and another for future private endpoints.
+
+I configured IPv4 address ranges using CIDR notation, verified the deployment, and reviewed the available IP addresses in each subnet.
+
+This network will support future infrastructure and security labs as the project develops.
+
 
 ## 3. Azure Resources and Configuration
 
@@ -81,8 +91,9 @@ No. Subnets within a VNet can communicate by default, subject to routing and sec
 
 The following screenshots document the deployment and configuration:
 
-- Successful VNet deployment.
-- Virtual Network overview.
+- Virtual Network address space and subnet configuration.
+- Successful Azure configuration validation.
+- Successful Virtual Network deployment.
 - Verification of both subnets and their IPv4 address ranges.
 
 Screenshots are stored in the `screenshots/` folder.
@@ -112,7 +123,7 @@ Additional services, such as NAT Gateway, Azure Firewall, and Azure Bastion, may
 ---
 
 **Lab Status:** Completed and verified  
-**Certification:** Microsoft Azure Fundamentals (AZ-900)
+**Learning Path:** Microsoft Azure Fundamentals (AZ-900)
 
 ## Deployment Evidence
 
