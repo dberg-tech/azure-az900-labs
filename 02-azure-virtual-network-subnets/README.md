@@ -139,3 +139,40 @@ Additional services, such as NAT Gateway, Azure Firewall, and Azure Bastion, may
 ### 4. Subnet Verification
 ![Two deployed subnets](screenshots/04-vnet-subnets-verified.png)
   
+
+## 10. Connection to Lab 01 and Future Development
+
+This lab is part of a simulated e-commerce cloud infrastructure project built progressively in Microsoft Azure.
+
+### Lab 01 — Storage Foundation
+
+I deployed Azure Blob Storage to explore secure file storage, access permissions, reliability, and cost management.
+
+I also investigated an HTTP 403 authorization error and configured Azure RBAC permissions to successfully retrieve a test file.
+
+### Lab 02 — Network Foundation
+
+I expanded the same development environment by deploying an Azure Virtual Network with two separate subnets:
+
+- An application subnet for future workloads.
+- A private endpoints subnet for future private connections to Azure services.
+
+Both labs use the same Azure Resource Group, `rg-portfolio-dev`.
+
+However, the storage account and Virtual Network are not yet connected through a private endpoint.
+
+### Future Development
+
+The next stages of this project will explore:
+
+- Network Security Groups and traffic rules.
+- Private connectivity to Azure services.
+- Identity and access management.
+- Infrastructure as Code using Bicep or Terraform.
+- Deployment automation and monitoring.
+
+The long-term goal is to develop this environment into a more secure, maintainable, and automated Azure infrastructure project.
+
+### Previous Lab
+
+[Lab 01 — Azure Storage Account and Blob Storage](../01-azure-storage-account-blob-storage/README.md)
