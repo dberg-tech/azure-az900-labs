@@ -2,13 +2,19 @@
 
 ## 1. Business Problem
 
-Organizations need a reliable and scalable way to store and retrieve files without maintaining physical storage infrastructure.
+A growing e-commerce company is building its development infrastructure in Microsoft Azure. The company needs a reliable, scalable, and secure way to store product-related files and application assets without maintaining physical storage infrastructure.
 
-In this lab, I explored how Microsoft Azure Blob Storage can provide cloud-based file storage while considering security, reliability, and cost.
+In this project, I evaluate Azure Blob Storage as a potential storage solution while considering access control, reliability, and operational costs.
 
 ## 2. Project Objective
 
-My objective was to create an Azure Storage Account with a private Blob container, upload a text file, retrieve it, and verify that the downloaded contents matched the original.
+The objective of this lab was to evaluate Azure Blob Storage for a simulated e-commerce company's development environment.
+
+I deployed an Azure Storage Account and a private Blob container, uploaded and retrieved a test file, and verified that the downloaded content matched the original.
+
+I also investigated an HTTP 403 authorization error, configured Azure RBAC permissions, and reviewed storage costs using Azure Cost Management.
+
+This lab establishes the storage foundation for a larger, connected Azure infrastructure portfolio project.
 
 ## 3. Azure Resources and Configuration
 
@@ -165,3 +171,18 @@ My main takeaway is that Cloud Engineering involves more than deploying resource
 
 
 **Lab Status:** Completed — manual file upload and retrieval verified.
+
+
+## 12. Connection to the Next Lab
+
+This lab is part of a simulated e-commerce cloud infrastructure project.
+
+In Lab 01, I deployed Azure Blob Storage to explore secure file storage, access permissions, and cost management.
+
+In Lab 02, I expanded the same development environment by deploying an Azure Virtual Network with separate application and private endpoint subnets.
+
+Both resources belong to the same Azure Resource Group, `rg-portfolio-dev`, but they are not yet connected through a private endpoint.
+
+The goal is to progressively develop this environment through networking, security, governance, infrastructure as code, and automation.
+
+[Continue to Lab 02 — Virtual Network and Subnets](../02-azure-virtual-network-subnets/README.md)
